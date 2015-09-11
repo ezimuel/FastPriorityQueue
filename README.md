@@ -52,7 +52,17 @@ As you can see the execution time of FastPriorityQueue is very good, from **3x
 to 6x faster** than the others implementation (except the SplPriorityQueue that
 is out of the comparison).
 
+## Unit Tests
+
+You can run the unit tests running the following commmand, after the installation
+using [composer](https://getcomposer.org/).
+
+```
+vendor/bin/phpunit
+```
+
 ## Copyright
 
 This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
+
 (C) Copyright 2015 by [Enrico Zimuel](http://www.zimuel.it).
