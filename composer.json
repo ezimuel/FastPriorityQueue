@@ -1,0 +1,28 @@
+{
+    "name": "ezimuel/fastpriorityqueue",
+    "description": "Efficient integer priority queue implementation in PHP",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "Spl",
+        "SplPriorityQueue",
+        "Priority Queue"
+    ],
+    "homepage": "https://github.com/ezimuel/fastpriorityqueue",
+    "autoload": {
+        "psr-4": {
+            "FastPriorityQueue\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.5"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "test/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.7",
+        "zendframework/zend-stdlib": "^2.6"
+    }
+}
