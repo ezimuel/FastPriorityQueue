@@ -1,13 +1,14 @@
 <?php
+
 /**
  * Benchmark the execution time of FastPriorityQueue
- * compared with SplPriorityQueue and other implementations
+ * compared with SplPriorityQueue and other implementations.
  */
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
 use FastPriorityQueue\PriorityQueue as FastPriorityQueue;
-use Zend\Stdlib\SplPriorityQueue as ZendSplPriorityQueue;
 use Zend\Stdlib\PriorityQueue as ZendPriorityQueue;
+use Zend\Stdlib\SplPriorityQueue as ZendSplPriorityQueue;
 
 $numIterations = 50000;
 
@@ -61,16 +62,16 @@ $times['zend_priority'] = microtime(true) - $start;
 
 print_results($times);
 
-printf ("\n* The PHP SplPriorityQueue with the order issue (https://bugs.php.net/bug.php?id=60926)\n");
+printf("\n* The PHP SplPriorityQueue with the order issue (https://bugs.php.net/bug.php?id=60926)\n");
 
 // insert and extract $tot elements with priority 1
 function benchmark($tot, $queue)
 {
-    for($i=0; $i<$tot; $i++) {
-        $queue->insert("This is a test!", 1);
+    for ($i = 0; $i < $tot; $i++) {
+        $queue->insert('This is a test!', 1);
     }
-    for($i=0; $i<$tot; $i++) {
-        if ("This is a test!" !== $queue->extract()) {
+    for ($i = 0; $i < $tot; $i++) {
+        if ('This is a test!' !== $queue->extract()) {
             printf("ERROR: the extracted value is wrong!\n");
             exit();
         }
@@ -80,10 +81,10 @@ function benchmark($tot, $queue)
 // insert and extract $tot elements with priority rand(1,100)
 function benchmark_random($tot, $queue)
 {
-    for($i=0; $i<$tot; $i++) {
-        $queue->insert("This is a test!", rand(1,100));
+    for ($i = 0; $i < $tot; $i++) {
+        $queue->insert('This is a test!', rand(1, 100));
     }
-    for($i=0; $i<$tot; $i++) {
+    for ($i = 0; $i < $tot; $i++) {
         $queue->extract();
     }
 }
@@ -92,8 +93,8 @@ function benchmark_random($tot, $queue)
 function print_results($times)
 {
     $min = min($times);
-    printf ("SplPriorityQueue*               : %.8f (sec)\n", $times['spl']);
-    printf ("FastPriorityQueue\PriorityQueue : %.8f (sec)\n", $times['fast']);
-    printf ("Zend\Stdlib\SplPriorityQueue    : %.8f (sec)\n", $times['zend_spl']);
-    printf ("Zend\Stdlib\PriorityQueue       : %.8f (sec)\n", $times['zend_priority']);
+    printf("SplPriorityQueue*               : %.8f (sec)\n", $times['spl']);
+    printf("FastPriorityQueue\PriorityQueue : %.8f (sec)\n", $times['fast']);
+    printf("Zend\Stdlib\SplPriorityQueue    : %.8f (sec)\n", $times['zend_spl']);
+    printf("Zend\Stdlib\PriorityQueue       : %.8f (sec)\n", $times['zend_priority']);
 }
