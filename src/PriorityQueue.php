@@ -28,7 +28,7 @@ class PriorityQueue implements \Iterator, \Countable
                 $this->max = $priority;
             }
         }
-        $this->tot++;
+        ++$this->tot;
     }
 
     public function extract()
@@ -64,8 +64,8 @@ class PriorityQueue implements \Iterator, \Countable
             unset($this->values[$this->max]);
             $this->max = empty($this->priorities) ? 0 : max($this->priorities);
         }
-        $this->index++;
-        $this->tot--;
+        ++$this->index;
+        --$this->tot;
     }
 
     public function valid()
