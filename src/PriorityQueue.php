@@ -24,9 +24,7 @@ class PriorityQueue implements \Iterator, \Countable
         $this->values[$priority][] = $value;
         if (!isset($this->priorities[$priority])) {
             $this->priorities[$priority] = $priority;
-            if ($priority > $this->max) {
-                $this->max = $priority;
-            }
+            $this->max = max($priority, $this->max);
         }
         ++$this->tot;
     }
