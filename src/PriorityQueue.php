@@ -8,10 +8,7 @@
 
 namespace FastPriorityQueue;
 
-use Countable;
-use Iterator;
-
-class PriorityQueue implements Iterator, Countable
+class PriorityQueue implements \Iterator, \Countable
 {
     protected $values = [];
     protected $priorities = [];
@@ -22,7 +19,7 @@ class PriorityQueue implements Iterator, Countable
     public function insert($value, $priority)
     {
         if (!is_int($priority) || $priority < 1) {
-            throw new InvalidArgumentException('The priority must be a positive integer');
+            throw new \InvalidArgumentException('The priority must be a positive integer');
         }
         $this->values[$priority][] = $value;
         if (!isset($this->priorities[$priority])) {
