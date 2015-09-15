@@ -4,14 +4,35 @@
 
 This is an efficient implementation of the **proprity queue** data structure in
 pure PHP. PHP offers the [SplPriorityQueue](http://php.net/manual/en/class.splpriorityqueue.php)
-class for implement of a proprity queue, but this component has a "strange"
+class that implements a proprity queue, but this component has a "strange"
 behaviour, see PHP request [#60926](https://bugs.php.net/bug.php?id=60926)
 and PHP bug [#53710](https://bugs.php.net/bug.php?id=53710).
+Basically, elements with the same priority are extracted in arbitrary order and
+this can be a problem in many uses cases. Even because, the [definition](https://en.wikipedia.org/wiki/Priority_queue)
+of Priority Queue says:
+
+> In a priority queue, an element with high priority is served before an
+> element with low priority. If two elements have the same priority, they
+> are served according to their order in the queue.
+
+Read the post [Taming SplPriorityQueue](https://mwop.net/blog/253-Taming-SplPriorityQueue.html)
+by [Matthew Weier O'Phinney](https://github.com/weierophinney) for more
+information about this SplPriorityQueue issue.
+
+# Implementation details
 
 I did not use the usual approach to implement the priority queue with an [heap](https://en.wikipedia.org/wiki/Heap_%28data_structure%29).
-Instead, I used ordered arrays grouped by priorities. This solution is very simple
-and offers a very good performance (the benchmark results are quite impressive,
-see below).
+I used [ordered arrays](https://github.com/ezimuel/FastPriorityQueue/blob/master/src/PriorityQueue.php#L19)
+grouped by [priorities](https://github.com/ezimuel/FastPriorityQueue/blob/master/src/PriorityQueue.php#L26).
+For the array iteration I used the [next()](http://php.net/manual/en/function.next.php),
+and [current()](http://php.net/manual/en/function.current.php) functions of PHP.
+
+To get the ordered priorities in the array I used the max() function of PHP and
+I remove it using [unset()](http://php.net/manual/en/function.unset.php) when
+all the elements of the priority have been extracted.
+
+This solution is very simple and offers a very good performance (see the benchmarks
+below).
 
 ## Benchmark
 
