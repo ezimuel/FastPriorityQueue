@@ -1,11 +1,14 @@
 ## Fast Priority Queue implementation
 
+[![Build Status](https://secure.travis-ci.org/ezimuel/FastPriorityQueue.svg?branch=master)](https://secure.travis-ci.org/ezimuel/FastPriorityQueue)
+
 This is an efficient implementation of the **proprity queue** data structure in
 pure PHP. PHP offers the [SplPriorityQueue](http://php.net/manual/en/class.splpriorityqueue.php)
 class for implement of a proprity queue, but this component has a "strange"
-behaviour, see PHP request [#60926](https://bugs.php.net/bug.php?id=60926).
+behaviour, see PHP request [#60926](https://bugs.php.net/bug.php?id=60926)
+and PHP bug [#53710](https://bugs.php.net/bug.php?id=53710).
 
-I did not use the usual approach to implement the priority queue using an heap.
+I did not use the usual approach to implement the priority queue with an [heap](https://en.wikipedia.org/wiki/Heap_%28data_structure%29).
 Instead, I used ordered arrays grouped by priorities. This solution is very simple
 and offers a very good performance (the benchmark results are quite impressive,
 see below).
