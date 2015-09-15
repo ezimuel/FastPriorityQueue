@@ -19,7 +19,7 @@ Read the post [Taming SplPriorityQueue](https://mwop.net/blog/253-Taming-SplPrio
 by [Matthew Weier O'Phinney](https://github.com/weierophinney) for more
 information about this SplPriorityQueue issue.
 
-# Implementation details
+## Implementation details
 
 I did not use the usual approach to implement the priority queue with an [heap](https://en.wikipedia.org/wiki/Heap_%28data_structure%29).
 I used [ordered arrays](https://github.com/ezimuel/FastPriorityQueue/blob/master/src/PriorityQueue.php#L19)
