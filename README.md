@@ -51,9 +51,8 @@ priority queue implementations:
 - [Zend\Stdlib\PriorityQueue](https://github.com/zendframework/zend-stdlib/blob/master/src/PriorityQueue.php)
 
 I included also the SplPriorityQueue of PHP to have a starter point for the
-comparisation, even if the results of this component are not correct and cannot
-be used as reported in the post [Taming SplPriorityQueue](https://mwop.net/blog/253-Taming-SplPriorityQueue.html)
-by Matthew Weier O'Phinney.
+comparisation, even if the results of this component are not correct, as
+commented above.
 
 I executed the benchmark using an Intel Core i5-2500 at 3.30GHz with 8 Gb of RAM
 running Ubuntu Linux 14.04 and PHP 5.5.9. Here the results:
