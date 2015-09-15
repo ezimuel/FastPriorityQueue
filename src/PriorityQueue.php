@@ -1,53 +1,56 @@
 <?php
 namespace FastPriorityQueue;
 
+use Iterator;
+use Countable;
+
 /**
  * Fast integer priority queue implementation using ordered arrays
  *
  * @author Enrico Zimuel (enrico@zimuel.it)
  */
-class PriorityQueue implements \Iterator, \Countable
+class PriorityQueue implements Iterator, Countable
 {
     /**
-     * Queue elements (sorted by priority).
-     * 
+     * Queue elements (sorted by priority)
+     *
      * @var array
      */
     protected $values = [];
 
     /**
-     * Priorities.
-     * 
+     * Priorities
+     *
      * @var array
      */
     protected $priorities = [];
 
     /**
-     * Maximum priority contained.
-     * 
+     * Maximum priority contained
+     *
      * @var int
      */
     protected $max = 0;
 
     /**
-     * Total elements contained.
-     * 
+     * Total elements contained
+     *
      * @var int
      */
     protected $tot = 0;
 
     /**
-     * Current index while looping the queue.
-     * 
+     * Current index while looping the queue
+     *
      * @var int
      */
     protected $index = 0;
 
     /**
      * Insert a new element into the queue.
-     * 
-     * @param mixed $value    Element to insert.
-     * @param int   $priority Priority from 1 to PHP_INT_MAX.
+     *
+     * @param mixed $value    Element to insert
+     * @param int   $priority Priority from 1 to PHP_INT_MAX
      */
     public function insert($value, $priority)
     {
@@ -64,7 +67,7 @@ class PriorityQueue implements \Iterator, \Countable
 
     /**
      * Extracts a node from the current position of the queue.
-     * 
+     *
      * @return mixed
      */
     public function extract()
@@ -79,7 +82,7 @@ class PriorityQueue implements \Iterator, \Countable
 
     /**
      * Number of elements contained in the queue.
-     * 
+     *
      * @return int
      */
     public function count()
@@ -89,7 +92,7 @@ class PriorityQueue implements \Iterator, \Countable
 
     /**
      * Current element.
-     * 
+     *
      * @return mixed
      */
     public function current()
@@ -99,7 +102,7 @@ class PriorityQueue implements \Iterator, \Countable
 
     /**
      * Current element index.
-     * 
+     *
      * @return int
      */
     public function key()
@@ -123,7 +126,7 @@ class PriorityQueue implements \Iterator, \Countable
 
     /**
      * Checks if the element in the end of the queue still exists.
-     * 
+     *
      * @return bool
      */
     public function valid()
