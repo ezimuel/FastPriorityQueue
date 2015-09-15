@@ -1,9 +1,8 @@
 <?php
-
 namespace FastPriorityQueue;
 
 /**
- * Fast integer priority queue implementation using ordered arrays.
+ * Fast integer priority queue implementation using ordered arrays
  *
  * @author Enrico Zimuel (enrico@zimuel.it)
  */
@@ -75,7 +74,6 @@ class PriorityQueue implements \Iterator, \Countable
         }
         $value = $this->current();
         $this->next();
-
         return $value;
     }
 

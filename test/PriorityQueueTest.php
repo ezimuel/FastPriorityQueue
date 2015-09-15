@@ -1,6 +1,5 @@
 <?php
-
-namespace test;
+namespace Test;
 
 use FastPriorityQueue\PriorityQueue;
 
@@ -19,7 +18,7 @@ class PriorityQueueTest extends \PHPUnit_Framework_TestCase
             'test1' => 5,
             'test2' => 3,
             'test4' => 2,
-            'test6' => 1,
+            'test6' => 1
         ];
     }
 
@@ -33,10 +32,10 @@ class PriorityQueueTest extends \PHPUnit_Framework_TestCase
     public function testInsertExtractSamePriority()
     {
         $tot = 10;
-        for ($i = 1; $i < $tot; $i++) {
-            $this->queue->insert("test$i", 1);
+        for ($i=1; $i<$tot; $i++) {
+          $this->queue->insert("test$i", 1);
         }
-        for ($i = 1; $i < $tot; $i++) {
+        for($i=1; $i<$tot; $i++) {
             $this->assertEquals("test$i", $this->queue->extract());
         }
     }
@@ -45,7 +44,7 @@ class PriorityQueueTest extends \PHPUnit_Framework_TestCase
     {
         $this->insertMixedPriorities($this->queue);
         $tot = count($this->getDataPriorityQueue());
-        for ($i = 1; $i < $tot; $i++) {
+        for($i=1; $i<$tot; $i++) {
             $this->assertEquals("test$i", $this->queue->extract());
         }
     }
@@ -67,10 +66,11 @@ class PriorityQueueTest extends \PHPUnit_Framework_TestCase
         $this->insertMixedPriorities($this->queue);
         $this->queue->rewind();
 
-        while ($this->queue->valid()) {
-            $key = $this->queue->key();
+        while ($this->queue->valid())
+        {
+            $key   = $this->queue->key();
             $value = $this->queue->current();
-            $this->assertEquals(sprintf('test%s', ++$key), $value);
+            $this->assertEquals(sprintf("test%s", ++$key), $value);
             $this->queue->next();
         }
         $this->assertFalse($this->queue->valid());
@@ -82,7 +82,7 @@ class PriorityQueueTest extends \PHPUnit_Framework_TestCase
 
         foreach ($this->queue as $value) {
             $key = $this->queue->key();
-            $this->assertEquals(sprintf('test%s', ++$key), $value);
+            $this->assertEquals(sprintf("test%s", ++$key), $value);
         }
         $this->assertFalse($this->queue->valid());
     }
