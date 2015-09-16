@@ -2,8 +2,8 @@
 
 [![Build Status](https://secure.travis-ci.org/ezimuel/FastPriorityQueue.svg?branch=master)](https://secure.travis-ci.org/ezimuel/FastPriorityQueue)
 
-This is an efficient implementation of the **proprity queue** data structure in
-pure PHP. PHP offers the [SplPriorityQueue](http://php.net/manual/en/class.splpriorityqueue.php)
+This is an efficient implementation of an **integer proprity queue** in PHP.
+PHP offers the [SplPriorityQueue](http://php.net/manual/en/class.splpriorityqueue.php)
 class that implements a proprity queue, but this component has a "strange"
 behaviour, see PHP request [#60926](https://bugs.php.net/bug.php?id=60926)
 and PHP bug [#53710](https://bugs.php.net/bug.php?id=53710).
