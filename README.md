@@ -27,11 +27,12 @@ grouped by [priorities](https://github.com/ezimuel/FastPriorityQueue/blob/master
 For the array iteration I used the [next()](http://php.net/manual/en/function.next.php),
 and [current()](http://php.net/manual/en/function.current.php) functions of PHP.
 
-To get the ordered priorities in the array I used the max() function of PHP and
-I remove it using [unset()](http://php.net/manual/en/function.unset.php) when
-all the elements of the priority have been extracted.
+To get the priorities in order, I use the [max()](http://php.net/manual/en/function.max.php)
+function of PHP. To retrieve the next priority, I remove the previous one from
+the array, using [unset()](http://php.net/manual/en/function.unset.php), and I
+re-apply the max() function to the remaining values.
 
-This solution is very simple and offers a very good performance (see the benchmarks
+This solution is very simple and offers very good performance (see the benchmark
 below).
 
 ## Benchmark
