@@ -24,5 +24,6 @@
     "require-dev": {
         "phpunit/phpunit": "^8.0",
         "zendframework/zend-stdlib": "^2.6"
-    }
+    },
+    "minimum-stability": "stable"
 }
