@@ -2,10 +2,11 @@
 namespace Test;
 
 use FastPriorityQueue\PriorityQueue;
+use PHPUnit\Framework\TestCase;
 
-class PriorityQueueTest extends \PHPUnit_Framework_TestCase
+class PriorityQueueTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->queue = new PriorityQueue();
     }
